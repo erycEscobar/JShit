@@ -1,7 +1,6 @@
 /* --- 03_Primera Entrega Del Proyecto Final --- */
 
 class Pokemon {
-
     constructor (id, pokemon, tipoPrimario, tipoSecundario) {
         this.id = parseInt (id);
         this.pokemon = pokemon.toUpperCase();
@@ -18,7 +17,6 @@ class Pokemon {
     pokeAtrapado() {
         this.atrapado = true;
     }
-
 }
 
 const arrayPokedex = [ 
@@ -89,32 +87,7 @@ const arrayPokedex = [
     {id: 065, pokemon: "Alakazam", tipoPrimario: "Psíquico", tipoSecundario: "None", visto: false, atrapado: false},
 ];
 
-let opciones = "12345"
-let nombre = prompt("Bienvenido al proyecto pokedex, cual es tu nombre?");
-let opcion = prompt(`Ok ${nombre}, comencemos, esta version de la pokedex cuenta con 65 pokemons, y las opciones son las siguientes: 
-
-                     1: Buscar por nombre 
-                     2: Buscar por numero
-                     3: Listar por tipoPrimario 
-                     4: Listar por tipoSecundario 
-                     5: Listarlos a todos
-
-                     que quieres hacer?`);
-
 function encontrarListar (find, propiedad) {
-    for (const pokemon of arrayPokedex) {
-        let searching = pokemon[propiedad];
-        if (searching === find) {
-            console.log("Nº: " + pokemon.id);
-            console.log("Pokemon: " + pokemon.pokemon);
-            console.log("Tipo Primario: " + pokemon.tipoPrimario);
-            console.log("Tipo Secundario: " + pokemon.tipoSecundario);
-            console.log("---------------------------")
-        }
-    };
-}
-
-function listarTipo (find, propiedad) {
     let arrayTipo = arrayPokedex.filter(pokemon => pokemon[propiedad] === find);
     for (const pokemon of arrayTipo) {
         console.log("Nº: " + pokemon.id);
@@ -126,14 +99,16 @@ function listarTipo (find, propiedad) {
 }
 
 function registrar (find, name, propiedad) {
-    for (const pokemon of tempPokedex) {
+    for (const pokemon of arrayPokedex) {
         let searching = pokemon[name];
         if (searching === find) {
             switch (propiedad) {
                 case "visto":
+                    console.log("TODAVIA NO PUDE CORREGIR ESTE ERROR");
                     pokemon.pokeVisto();
                     break;
                 case "atrapado":
+                    console.log("TODAVIA NO PUDE CORREGIR ESTE ERROR");
                     pokemon.pokeAtrapado();
                     break;
             } 
@@ -148,6 +123,20 @@ function registrar (find, name, propiedad) {
     };
 }
 
+let opciones = "1234567"
+let nombre = prompt("Bienvenido al proyecto pokedex, cual es tu nombre?");
+let opcion = prompt(`Ok ${nombre}, comencemos, esta version de la pokedex cuenta con 65 pokemons, y las opciones son las siguientes: 
+        
+                        1: Buscar por nombre 
+                        2: Buscar por numero
+                        3: Listar por tipoPrimario 
+                        4: Listar por tipoSecundario 
+                        5: Listarlos a todos
+                        6: Registrar Visto
+                        7: Registrar Atrapado
+        
+                        que quieres hacer?`);
+        
 if (opciones.indexOf(opcion,0) != -1) {
     switch (opcion) {
         case "1":
@@ -160,22 +149,21 @@ if (opciones.indexOf(opcion,0) != -1) {
             break;
         case "3":
             let tipoPrimario = prompt("Ingrese el tipoPrimario");
-            listarTipo (tipoPrimario, "tipoPrimario")
+            encontrarListar (tipoPrimario, "tipoPrimario");
             break;
         case "4":
             let tipoSecundario = prompt("Ingrese el tipoSecundario");
-            listarTipo (tipoSecundario, "tipoSecundario")
+            encontrarListar (tipoSecundario, "tipoSecundario");
             break;
         case "5":
             for (const pokemon of arrayPokedex) {
-                console.log("Nº: " + pokemon.id);
+                console.log(pokemon.id);
                 console.log("Pokemon: " + pokemon.pokemon);
                 console.log("Tipo Primario: " + pokemon.tipoPrimario);
                 console.log("Tipo Secundario: " + pokemon.tipoSecundario);
                 console.log("---------------------------")
             }; 
             break;
-        /*    
         case "6":
             let nombre2 = prompt("Ingrese el nombre del pokemon");
             registrar (nombre2, "pokemon", "visto");
@@ -186,6 +174,5 @@ if (opciones.indexOf(opcion,0) != -1) {
             break;
         default:
             break;
-        */
     }
 }
