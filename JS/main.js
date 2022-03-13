@@ -119,7 +119,6 @@ function nuevoPoke() {
 
 
 let opciones = "1234567"
-let security = false;
 let nombreUsr = prompt("Bienvenido al proyecto pokedex, cual es tu nombre?");
 let opcionUsr = prompt(`Ok ${nombreUsr}, comencemos, esta version de la pokedex cuenta con ${arrayPokedex.length} pokemons, y las opciones son las siguientes: 
         
