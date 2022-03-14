@@ -18,6 +18,7 @@ class Pokemon {
     pokeAtrapado() {
         this.atrapado = true;
     }
+
 }
 
 
@@ -113,22 +114,22 @@ function registrar (find, name, propiedad) {
         if (searching === find) {
             switch (propiedad) {
                 case "visto":
-                    pokemon.pokeVisto();
-                    break;
+                        pokemon.pokeVisto();
+                        break;
                     case "atrapado":
                         pokemon.pokeAtrapado();
-                    break;
-                } 
-                console.log("Nº: " + pokemon.id);
-                console.log("Pokemon: " + pokemon.pokemon);
-                console.log("Tipo Primario: " + pokemon.tipoPrimario);
-                console.log("Tipo Secundario: " + pokemon.tipoSecundario);
-                console.log("Visto: " + pokemon.visto);
-                console.log("Atrapado: " + pokemon.atrapado);
-                console.log("---------------------------")
-            }
-        };
-    }
+                        break;
+            } 
+            console.log("Nº: " + pokemon.id);
+            console.log("Pokemon: " + pokemon.pokemon);
+            console.log("Tipo Primario: " + pokemon.tipoPrimario);
+            console.log("Tipo Secundario: " + pokemon.tipoSecundario);
+            console.log("Visto: " + pokemon.visto);
+            console.log("Atrapado: " + pokemon.atrapado);
+            console.log("---------------------------")
+        }
+    };
+}
 
     
 
