@@ -143,6 +143,7 @@ function nuevoPoke() {
     let newTypeP = prompt("Ingrese tipo Primario del nuevo Pokemon");
     let newTypeS = prompt("Ingrese tipo Secundario del nuevo Pokemon");
     arrayPokedex.push(new Pokemon(newId, newName, newTypeP, newTypeS));
+    console.log(arrayPokedex);
 };
 
 
