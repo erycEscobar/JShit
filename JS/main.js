@@ -94,21 +94,25 @@ arrayPokedex.push(new Pokemon("65", "Alakazam", "Psíquico", "None"));
 
 
 function encontrarListar (find, propiedad) {
-    find = find.toUpperCase();
+    if (isNaN(find)) {
+        find = find.toUpperCase();
+    };
     let arrayTipo = arrayPokedex.filter(pokemon => pokemon[propiedad] === find);
     for (const pokemon of arrayTipo) {
         console.log("Nº: " + pokemon.id);
         console.log("Pokemon: " + pokemon.pokemon);
         console.log("Tipo Primario: " + pokemon.tipoPrimario);
         console.log("Tipo Secundario: " + pokemon.tipoSecundario);
-        console.log("---------------------------")
+        console.log("---------------------------");
     }; 
-}
+};
 
 
 
 function registrar (find, name, propiedad) {
-    find = find.toUpperCase();
+    if (isNaN(find)) {
+        find = find.toUpperCase();
+    };
     for (const pokemon of arrayPokedex) {
         let searching = pokemon[name];
         if (searching === find) {
@@ -119,17 +123,17 @@ function registrar (find, name, propiedad) {
                     case "atrapado":
                         pokemon.pokeAtrapado();
                         break;
-            } 
+            }; 
             console.log("Nº: " + pokemon.id);
             console.log("Pokemon: " + pokemon.pokemon);
             console.log("Tipo Primario: " + pokemon.tipoPrimario);
             console.log("Tipo Secundario: " + pokemon.tipoSecundario);
             console.log("Visto: " + pokemon.visto);
             console.log("Atrapado: " + pokemon.atrapado);
-            console.log("---------------------------")
-        }
+            console.log("---------------------------");
+        };
     };
-}
+};
 
     
 
@@ -139,10 +143,11 @@ function nuevoPoke() {
     let newTypeP = prompt("Ingrese tipo Primario del nuevo Pokemon");
     let newTypeS = prompt("Ingrese tipo Secundario del nuevo Pokemon");
     arrayPokedex.push(new Pokemon(newId, newName, newTypeP, newTypeS));
-}
+};
 
 
-let opciones = "1234567"
+
+let opciones = "12345678";
 let nombreUsr = prompt("Bienvenido al proyecto pokedex, cual es tu nombre?");
 let opcionUsr = prompt(`Ok ${nombreUsr}, comencemos, esta version de la pokedex cuenta con ${arrayPokedex.length} pokemons, y las opciones son las siguientes: 
         
@@ -186,7 +191,7 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
                 console.log("Pokemon: " + pokemon.pokemon);
                 console.log("Tipo Primario: " + pokemon.tipoPrimario);
                 console.log("Tipo Secundario: " + pokemon.tipoSecundario);
-                console.log("---------------------------")
+                console.log("---------------------------");
             }; 
             break;
         case "6":
@@ -200,5 +205,5 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
         case "8":
             nuevoPoke();
             break;
-    }
-}
+    };
+};
