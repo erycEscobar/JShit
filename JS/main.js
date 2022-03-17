@@ -14,6 +14,8 @@ class Pokemon {
 
     pokeVisto() {
         this.visto = true;
+        console.log (this.visto);
+
     }
 
     pokeAtrapado() {
@@ -24,7 +26,7 @@ class Pokemon {
 
 
 
-const arrayPokedex = [];
+const arrayPokedex = [  ];
 
 arrayPokedex.push(new Pokemon("001", "Bulbasaur", "Planta", "Veneno"));
 arrayPokedex.push(new Pokemon("002", "Ivysaur", "Planta", "Veneno"));
@@ -212,10 +214,10 @@ function nuevoPoke() {
                                 <h3>Nº: ${pokemon.id}</h3>
                                 <p>Nombre: ${pokemon.pokemon} </p>
                                 <p>Tipo Primario: ${pokemon.tipoPrimario}</p>
-                                <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`;
+                                <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`
+                                ;
         main.appendChild(contenedor);
     };
-
 };
 
 
@@ -267,6 +269,7 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
                 console.log("Tipo Secundario: " + pokemon.tipoSecundario);
                 console.log("---------------------------");
 
+                let button = document.createElement("button");
                 let main = document.getElementById("main");
                 let contenedor = document.createElement("div");
                 contenedor.innerHTML = `<img src=${pokemon.img}></img>
@@ -274,6 +277,17 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
                                         <p>Nombre: ${pokemon.pokemon} </p>
                                         <p>Tipo Primario: ${pokemon.tipoPrimario}</p>
                                         <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`;
+
+                button.id = pokemon.id;
+                button.innerHTML = "Marcar Visto";
+                button.onclick = (e) => {
+
+                    const pokemon = arrayPokedex.find (pokemon => pokemon.id = button.id);
+                    pokemon.pokeVisto();
+
+                };    
+
+                contenedor.appendChild(button);    
                 main.appendChild(contenedor);
 
             };
