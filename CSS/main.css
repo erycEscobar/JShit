@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url(/IMG/body_bg.png);
+    background-image: url(/Assets/body_bg.png);
     display: flex;
     flex-direction: column;
     align-items: center;

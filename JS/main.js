@@ -1,7 +1,4 @@
-/* --- 03_Primera Entrega Del Proyecto Final --- */
-
 class Pokemon {
-
     constructor (id, pokemon, tipoPrimario, tipoSecundario) {
         this.id = parseInt(id);
         this.pokemon = pokemon.toUpperCase();
@@ -9,25 +6,18 @@ class Pokemon {
         this.tipoSecundario = tipoSecundario.toUpperCase();
         this.visto = false;
         this.atrapado = false;
-        this.img = `./IMG/pokePictures/${id}.png`;
+        this.img = `./Assets/pokePictures/${id}.png`;
     }
-
     pokeVisto() {
         this.visto = true;
         console.log (this.visto);
-
     }
-
     pokeAtrapado() {
         this.atrapado = true;
     }
-
 }
 
-
-
 const arrayPokedex = [  ];
-
 arrayPokedex.push(new Pokemon("001", "Bulbasaur", "Planta", "Veneno"));
 arrayPokedex.push(new Pokemon("002", "Ivysaur", "Planta", "Veneno"));
 arrayPokedex.push(new Pokemon("003", "Venusaur", "Planta", "Veneno"));
@@ -128,11 +118,6 @@ arrayPokedex.push(new Pokemon("097", "Hypno", "Psíquico", "None"));
 arrayPokedex.push(new Pokemon("098", "Krabby", "Agua", "None"));
 arrayPokedex.push(new Pokemon("099", "Kingler", "Agua", "None"));
 
-
-
-
-
-
 function encontrarListar (find, propiedad) {
     if (isNaN(find)) {
         find = find.toUpperCase();
@@ -145,7 +130,6 @@ function encontrarListar (find, propiedad) {
         console.log("Tipo Primario: " + pokemon.tipoPrimario);
         console.log("Tipo Secundario: " + pokemon.tipoSecundario);
         console.log("---------------------------");
-
         let main = document.getElementById("main");
         let contenedor = document.createElement("div");
         contenedor.innerHTML = `<img src=${pokemon.img}></img>
@@ -154,11 +138,8 @@ function encontrarListar (find, propiedad) {
                                 <p>Tipo Primario: ${pokemon.tipoPrimario}</p>
                                 <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`;
         main.appendChild(contenedor);  
-
     }; 
 };
-
-
 
 function registrar (find, name, propiedad) {
     if (isNaN(find)) {
@@ -192,12 +173,9 @@ function registrar (find, name, propiedad) {
                                     <p>Tipo Primario: ${pokemon.tipoPrimario}</p>
                                     <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`;
             main.appendChild(contenedor);  
-
         };
     };
 };
-
-    
 
 function nuevoPoke() {
     let newId = parseInt(prompt("Ingrese nuevo Id"));
@@ -206,7 +184,6 @@ function nuevoPoke() {
     let newTypeS = prompt("Ingrese tipo Secundario del nuevo Pokemon");
     arrayPokedex.push(new Pokemon(newId, newName, newTypeP, newTypeS));
     console.log(arrayPokedex);
-
     for (const pokemon of arrayPokedex) {
         let main = document.getElementById("main");
         let contenedor = document.createElement("div");
@@ -219,8 +196,6 @@ function nuevoPoke() {
         main.appendChild(contenedor);
     };
 };
-
-
 
 let opciones = "12345678";
 let nombreUsr = prompt("Bienvenido al proyecto pokedex, cual es tu nombre?");
@@ -239,8 +214,6 @@ Hola profesor Oak!
                         8: Ingresar nuevo pokemon
 
                         que quieres hacer?`);
-
-
 
 if (opciones.indexOf(opcionUsr,0) != -1) {
     switch (opcionUsr) {
@@ -262,13 +235,11 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
             break;
         case "5":
             for (const pokemon of arrayPokedex) {
-
                 console.log("Nº: " + pokemon.id);
                 console.log("Pokemon: " + pokemon.pokemon);
                 console.log("Tipo Primario: " + pokemon.tipoPrimario);
                 console.log("Tipo Secundario: " + pokemon.tipoSecundario);
                 console.log("---------------------------");
-
                 let button = document.createElement("button");
                 let main = document.getElementById("main");
                 let contenedor = document.createElement("div");
@@ -277,19 +248,14 @@ if (opciones.indexOf(opcionUsr,0) != -1) {
                                         <p>Nombre: ${pokemon.pokemon} </p>
                                         <p>Tipo Primario: ${pokemon.tipoPrimario}</p>
                                         <p>Tipo Secundario: ${pokemon.tipoSecundario}</p>`;
-
                 button.id = pokemon.id;
                 button.innerHTML = "Marcar Visto";
                 button.onclick = (e) => {
-
-                    const pokemon = arrayPokedex.find (pokemon => pokemon.id = button.id);
+                    const pokemon = arrayPokedex.find (pokemon => pokemon.id == button.id);
                     pokemon.pokeVisto();
-
                 };    
-
                 contenedor.appendChild(button);    
                 main.appendChild(contenedor);
-
             };
             break;
         case "6":
