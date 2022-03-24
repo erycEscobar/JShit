@@ -8,6 +8,11 @@
     list-style: none;
 }
 
+h1 img {
+    width: 500px;
+    max-width: 100%;
+}
+
 body {
     background-image: url(/Assets/body_bg.png);
     display: flex;
@@ -31,4 +36,15 @@ div {
     flex-direction: column;
     flex-wrap: wrap;
     max-width: fit-content;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+}
+
+.pookle {
+    align-self: center;
+    width: 300px;
+    max-width: 100%;
 }
